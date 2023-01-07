@@ -1,0 +1,17 @@
+{
+    "name": "Existing Dockerfile",
+    "context": "..",
+    "dockerFile": "./Dockerfile",
+    "runArgs": [ "--gpus=all" ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "donjayamanne.githistory",
+                "eamodio.gitlens",
+                "mhutchie.git-graph",
+                "ms-python.python"
+            ]
+        }
+    },
+    "postStartCommand": "git config --global core.editor 'code --wait'"
+}
