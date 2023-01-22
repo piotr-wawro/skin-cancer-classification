@@ -1,0 +1,12 @@
+ipykernel
+numpy
+matplotlib
+pandas
+torchinfo
+tqdm
+seaborn
+scikit-learn
+scipy
+Pillow
+scikit-image
+opencv-python
