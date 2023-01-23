@@ -7,11 +7,11 @@ import torch.nn as nn
 import torch
 
 # %%
-train = pd.read_csv('./data/custom/train.csv')
-test = pd.read_csv('./data/custom/test.csv')
+train = pd.read_csv('./source/data/custom/train.csv')
+test = pd.read_csv('./source/data/custom/test.csv')
 
 # %%
-train['dx'].unique()
+test.groupby('dx').count()
 
 # %%
 len(test)+len(train)

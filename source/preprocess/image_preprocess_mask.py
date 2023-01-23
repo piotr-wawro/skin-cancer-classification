@@ -138,7 +138,7 @@ def segment(img_path = None, plot = False):
 Path('./source/data/custom/images').mkdir(exist_ok=True, parents=True)
 paths = list(Path().glob('./source/data/Melanoma Classification/**/*.jpg'))
 
-done = list(Path().glob('./source/data/custom/**/*.jpg'))
+done = list(Path().glob('./source/data/custom/images/*.jpg'))
 done = [x.name for x in done]
 
 missing = []

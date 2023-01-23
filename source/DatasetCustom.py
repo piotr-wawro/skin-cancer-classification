@@ -14,7 +14,7 @@ class DatasetCustom(Dataset):
       'BKL': 1, # benign keratosis-like lesions (solar lentigines / seborrheic keratoses and lichen-planus like keratoses) | łagodne zmiany przypominające rogowacenie (plama soczewicowata / rogowacenie łojotokowe i rogowacenie podobne do liszaja płaskiego)
       'DF': 1, # dermatofibroma | dermatofibroma
       'VASC': 1, # vascular lesions (angiomas, angiokeratomas, pyogenic granulomas and hemorrhage) | zmiany naczyniowe (naczyniaki, angiokeratomy, ziarniniaki i krwotoki ropotwórcze)
-      'SCC': 0, # Squamous cell carcinoma | Rak kolczystokomórkowy
+      'SCC': 0, # Squamous cell carcinoma | rak kolczystokomórkowy
     })
     # 0 - dangerous
     # 1 - safe

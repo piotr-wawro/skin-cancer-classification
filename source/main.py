@@ -15,7 +15,7 @@ from DCNN import DCNN
 # %%
 dataset = DatasetCustom(
   annotation_file = './source/data/custom/train.csv',
-  img_dir = './source/data/custom/images',
+  img_dir = './source/data/custom/images_res',
   transform = torch.nn.Sequential(
     torchvision.transforms.ConvertImageDtype(torch.float32),
   ),
@@ -26,7 +26,7 @@ train = DataLoader(dataset, 16)
 # %%
 dataset = DatasetCustom(
   annotation_file = './source/data/custom/test.csv',
-  img_dir = './source/data/custom/images',
+  img_dir = './source/data/custom/images_res',
   transform = torch.nn.Sequential(
     torchvision.transforms.ConvertImageDtype(torch.float32),
   ),
