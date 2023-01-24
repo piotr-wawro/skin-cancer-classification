@@ -1,4 +1,4 @@
 {
     "notebook.output.textLineLimit": 100,
-    "jupyter.notebookFileRoot": "${workspaceFolder}"
+    "jupyter.notebookFileRoot": "${workspaceFolder}",
 }

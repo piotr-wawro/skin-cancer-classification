@@ -8,9 +8,11 @@ import torchvision
 from torchvision.transforms import Lambda
 from tqdm import tqdm
 import matplotlib.pyplot as plt
+import numpy as np
 
 from DatasetCustom import DatasetCustom
 from DCNN import DCNN
+from metrics import plot_confusion_matrix, print_summary
 
 # %%
 dataset = DatasetCustom(
@@ -90,6 +92,26 @@ def test_loop(dataloader, model):
   with Path('./test.txt').open('a+') as file:
     file.write(f"{loss}, {acc}\n")
 
+def predict(dataloader, model):
+  y_true = np.array([])
+  y_pred = np.array([])
+
+  model.eval()
+  with torch.no_grad():
+    for x, y in tqdm(dataloader, position=1, leave=False):
+      x = x.to(model.device)
+      y = y.to(model.device)
+
+      pred = model(x)
+
+      y_true_tmp = y.cpu().numpy()
+      y_pred_tmp = pred.argmax(1).cpu().numpy()
+
+      y_true = np.concatenate((y_true, y_true_tmp))
+      y_pred = np.concatenate((y_pred, y_pred_tmp))
+
+  return y_true, y_pred
+
 # %%
 model_name = 'DCNN.pth'
 model = DCNN()
@@ -124,3 +146,9 @@ for t in tqdm(range(epochs), position=0):
         'optimizer_state_dict': optim.state_dict(),
       }, model_name)
 print("Done!")
+
+# %%
+y_true, y_pred = predict(test, model)
+
+plot_confusion_matrix(y_true, y_pred)
+print_summary(y_true, y_pred)
